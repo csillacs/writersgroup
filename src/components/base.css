@@ -1,3 +1,5 @@
+
+
 @font-face {
   font-family: "Avenir";
   font-weight: 400;
@@ -40,7 +42,7 @@ a {
 /**
  * article grid
  */
-.article-list {
+.list {
   margin: 0;
   padding: 0;
   list-style: none;

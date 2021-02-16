@@ -1,42 +1,62 @@
-const Promise = require('bluebird')
-const path = require('path')
+// const Promise = require("bluebird");
+const path = require("path");
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    const blogPost = path.resolve('./src/templates/blog-post.js')
-    resolve(
-      graphql(
-        `
-          {
-            allContentfulBlogPost {
-              edges {
-                node {
-                  title
-                  slug
-                }
-              }
-            }
+  const blogPostQuery = graphql(`
+    query {
+      allContentfulBlogPost {
+        edges {
+          node {
+            slug
           }
-        `
-      ).then(result => {
-        if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
         }
+      }
+    }
+  `).then((result) => {
+    result.data.allContentfulBlogPost.edges.forEach(({ node }) => {
+      createPage({
+        path: `/blog/${node.slug}/`,
+        component: path.resolve("./src/templates/blog-post.js"),
+        context: {
+          slug: node.slug,
+        },
+      });
+    });
+  });
 
-        const posts = result.data.allContentfulBlogPost.edges
-        posts.forEach(post => {
-          createPage({
-            path: `/blog/${post.node.slug}/`,
-            component: blogPost,
-            context: {
-              slug: post.node.slug,
-            },
-          })
-        })
-      })
-    )
-  })
-}
+  const AuthorsQuery = graphql(`
+    query {
+      allContentfulPerson {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+      allContentfulHeroImage {
+        edges {
+          node {
+            id
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    result.data.allContentfulPerson.edges.forEach(({ node }) => {
+      console.log(node.slug);
+    });
+    result.data.allContentfulPerson.edges.forEach(({ node }) => {
+      createPage({
+        path: `/authors/${node.slug}/`,
+        component: path.resolve("./src/templates/author-profile.js"),
+        context: {
+          slug: node.slug,
+        },
+      });
+    });
+  });
+
+  return Promise.all([blogPostQuery, AuthorsQuery]);
+};

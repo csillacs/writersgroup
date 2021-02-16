@@ -16,17 +16,17 @@
 
 .heroDetails {
   position: absolute;
-  background: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.7); */
   left: 50%;
   bottom: 0;
   transform: translate(-50%, 0);
-  font-size: 14px;
+  font-size: 16px;
   padding: 0 0.5em;
 }
 
 @media(min-width: 600px) {
   .heroDetails {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
