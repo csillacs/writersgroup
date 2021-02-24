@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import get from "lodash/get";
 import { Helmet } from "react-helmet";
-import styles from "./blog.module.css";
+import styles from "../pages/blog.module.css";
 import Layout from "./layout";
 
-export default function Contact() {
-  const siteTitle = get(this, "props.data.site.siteMetadata.title");
+export default function ContactForm({ data }) {
+  const siteTitle = data.site.siteMetadata.title;
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null,

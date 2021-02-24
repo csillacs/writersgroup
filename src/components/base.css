@@ -1,4 +1,4 @@
-
+/* 
 
 @font-face {
   font-family: "Avenir";
@@ -6,10 +6,13 @@
   font-style: normal;
   src: url("/avenir-400.woff2") format("woff2");
   font-display: swap;
-}
+} */
 
 body {
-  font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif;
+  /* font-family: "Avenir", Tahoma, Arial, Helvetica, sans-serif; */
+  font-family: Garamond, serif;
+
+
   font-size: 1em;
   line-height: 1.65;
   color: #373F49;
@@ -49,6 +52,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 5vmin;
+
 }
 
 /**

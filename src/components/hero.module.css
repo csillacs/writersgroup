@@ -19,10 +19,44 @@
   /* background: rgba(0, 0, 0, 0.7); */
   left: 50%;
   bottom: 0;
-  transform: translate(-50%, 0);
-  font-size: 16px;
+  transform: translate(-50%);
   padding: 0 0.5em;
 }
+.heroHeadline {
+  letter-spacing: 2px;
+
+}
+.heroText{
+
+}
+.heroButton {
+background:transparent;
+color:#fff;
+border: 1px solid #fff; 
+padding: 5px 12px;
+cursor: pointer;
+border-radius: 5px;
+box-shadow: 3px 3px 3px #888888;
+margin-top: 15px;
+margin-bottom: 30px;
+}
+
+.heroButton:hover {
+  opacity:70%;
+ 
+  } 
+
+
+  @media(min-width: 300px) {
+    .heroDetails {
+      font-size: 12px;
+      }
+    }
+  @media(min-width: 400px) {
+    .heroDetails {
+      font-size: 16px;
+    }
+  }
 
 @media(min-width: 600px) {
   .heroDetails {

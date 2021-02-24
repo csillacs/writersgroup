@@ -2,8 +2,9 @@ import React from "react";
 import { graphql } from "gatsby";
 import get from "lodash/get";
 import { Helmet } from "react-helmet";
-import styles from "./blog.module.css";
 import Layout from "../components/layout";
+import Hero from "../components/hero";
+
 import ArticlePreview from "../components/article-preview";
 
 class BlogIndex extends React.Component {
@@ -15,7 +16,8 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location}>
         <div style={{ background: "#fff" }}>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>Blog</div>
+          <Hero />
+
           <div className="wrapper">
             <h2 className="section-headline">All articles</h2>
 
@@ -51,6 +53,11 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
       edges {
         node {

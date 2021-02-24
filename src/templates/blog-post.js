@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import get from "lodash/get";
 import Img from "gatsby-image";
@@ -10,7 +10,6 @@ import { DiscussionEmbed } from "disqus-react";
 class BlogPostTemplate extends React.Component {
   render() {
     const post = get(this.props, "data.contentfulBlogPost");
-    // const author = get(this.props, "data.contentfulPerson");
 
     const siteTitle = get(this.props, "data.site.siteMetadata.title");
     const disqusConfig = {
@@ -28,6 +27,7 @@ class BlogPostTemplate extends React.Component {
               fluid={post.heroImage.fluid}
             />
           </div>
+
           <div className="wrapper">
             <h1 className="section-headline">{post.title}</h1>
             <p
@@ -37,14 +37,21 @@ class BlogPostTemplate extends React.Component {
             >
               {" "}
               <b>
-                {post.publishDate} | {post.author.name}
-                {/* <Link to={`/authors/${post.author.slug}`}>
+                {post.publishDate} |{" "}
+                <Link
+                  to={`/authors/${post.author.slug}`}
+                  className="hover:underline"
+                >
+                  {post.author.name}
+                </Link>
+                {/* <Link to={`/authors/${node.slug}/`}>
                   {post.author.name}
                 </Link> */}
               </b>
             </p>
+            <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
             <div
-              className="py-20"
+              className="py-20 text-justify leading-relaxed"
               dangerouslySetInnerHTML={{
                 __html: post.body.childMarkdownRemark.html,
               }}
@@ -66,6 +73,7 @@ export const pageQuery = graphql`
     contentfulBlogPost(slug: { eq: $slug }) {
       author {
         name
+        slug
       }
       title
       publishDate(formatString: "MMMM Do, YYYY")
@@ -77,6 +85,7 @@ export const pageQuery = graphql`
       body {
         childMarkdownRemark {
           html
+          timeToRead
         }
       }
     }

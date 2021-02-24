@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import get from "lodash/get";
 import { Helmet } from "react-helmet";
-import styles from "./blog.module.css";
+// import styles from "./blog.module.css";
 import Layout from "../components/layout";
+import { graphql } from "gatsby";
+import Hero from "../components/hero";
 
-export default function Contact() {
-  const siteTitle = get(this, "props.data.site.siteMetadata.title");
+export default function Contact({ data }) {
+  const siteTitle = data.site.siteMetadata.title;
+
   const [serverState, setServerState] = useState({
     submitting: false,
     status: null,
@@ -41,14 +43,15 @@ export default function Contact() {
     <Layout>
       <div style={{ background: "#fff" }}>
         <Helmet title={siteTitle} />
-        <div className={styles.hero}>Contact us</div>
+        <Hero />
+        {/* <div className={styles.hero}>Contact us</div> */}
         <div className="wrapper">
           <h2 className="section-headline">Contact us</h2>
 
           <div>
             <form className="w-full max-w-lg" onSubmit={handleOnSubmit}>
-              <div class="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
+              <div className="flex flex-wrap -mx-3 mb-6">
+                <div className="w-full px-3">
                   <label
                     className="block  tracking-wide text-gray-700 text-m font-bold mb-2"
                     htmlFor="inputName"
@@ -85,7 +88,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
+                <div className="w-full px-3">
                   <label
                     className="block  tracking-wide text-gray-700 text-m font-bold mb-2"
                     htmlFor="inputSubject"
@@ -102,7 +105,7 @@ export default function Contact() {
                 </div>
               </div>
               <div className="flex flex-wrap -mx-3 mb-6">
-                <div class="w-full px-3">
+                <div className="w-full px-3">
                   <label
                     className="block  tracking-wide text-gray-700 text-m font-bold mb-2"
                     htmlFor="inputMessage"
@@ -118,8 +121,8 @@ export default function Contact() {
                   />
                 </div>
               </div>
-              <div class="md:flex md:items-center">
-                <div class="md:w-1/3">
+              <div className="md:flex md:items-center">
+                <div className="md:w-1/3">
                   <button
                     className="shadow bg-black hover:bg-black-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                     type="submit"

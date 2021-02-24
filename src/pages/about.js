@@ -1,34 +1,29 @@
 import React from "react";
-import get from "lodash/get";
 import { Helmet } from "react-helmet";
-import styles from "./blog.module.css";
+// import styles from "./blog.module.css";
 import Layout from "../components/layout";
+import Hero from "../components/hero";
+import AboutContent from "../components/about-content";
+import FacebookEvents from "../components/facebook-events";
 
-export default function About() {
-  const siteTitle = get(this, "props.data.site.siteMetadata.title");
+import { graphql } from "gatsby";
+
+export default function About({ data }) {
+  const siteTitle = data.site.siteMetadata.title;
 
   return (
     <Layout>
       <div style={{ background: "#fff" }}>
         <Helmet title={siteTitle} />
-        <div className={styles.hero}>About us</div>
+        <Hero />
+
         <div className="wrapper">
           <h2 className="section-headline">About us</h2>
 
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fhelsinkiwritersgroup%2F&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=true&appId"
-            width="340"
-            height="500"
-            className="border:none;overflow:hidden"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          ></iframe>
-          {/* <h1>I'd love to talk! Email me at the address below</h1>
-          <p>
-            <a href="mailto:me@example.com">me@example.com</a>
-          </p> */}
+          <AboutContent />
+          <div className="py-20 m:auto">
+            <FacebookEvents />
+          </div>
         </div>
       </div>
     </Layout>
@@ -40,30 +35,6 @@ export const AboutUsQuery = graphql`
     site {
       siteMetadata {
         title
-      }
-    }
-
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
       }
     }
   }

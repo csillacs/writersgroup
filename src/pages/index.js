@@ -8,17 +8,21 @@ import ArticlePreview from "../components/article-preview";
 
 class RootIndex extends React.Component {
   render() {
+    // const siteTitle = data.site.siteMetadata.title;
+    // const posts = data.allContentfulBlogPost.edges;
+    // const [author] = data.allContentfulPerson.edges;
+
     const siteTitle = get(this, "props.data.site.siteMetadata.title");
     const posts = get(this, "props.data.allContentfulBlogPost.edges");
-    const [author] = get(this, "props.data.allContentfulPerson.edges");
+    // const [author] = get(this, "props.data.allContentfulPerson.edges");
 
     return (
       <Layout location={this.props.location}>
         <div style={{ background: "#fff" }}>
           <Helmet title={siteTitle} />
-          <Hero data={author.node} />
+          <Hero />
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
+            <h2 className="section-headline">Our guidelines</h2>
             <ul className="list">
               {posts.map(({ node }) => {
                 return (
@@ -44,9 +48,15 @@ export const pageQuery = graphql`
         title
       }
     }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    allContentfulBlogPost(
+      filter: { tags: { eq: "general" } }
+      sort: { fields: publishDate, order: DESC }
+    ) {
       edges {
         node {
+          author {
+            name
+          }
           title
           slug
           publishDate(formatString: "MMMM Do, YYYY")
@@ -59,29 +69,6 @@ export const pageQuery = graphql`
           description {
             childMarkdownRemark {
               html
-            }
-          }
-        }
-      }
-    }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }

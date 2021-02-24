@@ -3,9 +3,11 @@ import { graphql } from "gatsby";
 
 import get from "lodash/get";
 import { Helmet } from "react-helmet";
-import styles from "./blog.module.css";
 import Layout from "../components/layout";
+import Hero from "../components/hero";
+
 import AuthorPreview from "../components/author-preview";
+import FormerMembers from "../components/former-members";
 
 class Authors extends React.Component {
   render() {
@@ -16,10 +18,12 @@ class Authors extends React.Component {
       <Layout>
         <div style={{ background: "#fff" }}>
           <Helmet title={siteTitle} />
-          <div className={styles.hero}>Authors</div>
+          <Hero />
+
           <div className="wrapper">
             <h2 className="section-headline">Authors</h2>
-            <ul className="list">
+            {/* <ul className="list"> */}
+            <ul className="">
               {authors.map(({ node }) => {
                 return (
                   <li key={node.slug}>
@@ -28,6 +32,8 @@ class Authors extends React.Component {
                 );
               })}
             </ul>
+
+            <FormerMembers />
           </div>
         </div>
       </Layout>
@@ -39,11 +45,14 @@ export default Authors;
 
 export const AuthorsQuery = graphql`
   query AuthorsQuery {
-    allContentfulPerson(sort: { fields: name, order: ASC }) {
+    allContentfulPerson(
+      sort: { fields: name, order: ASC }
+      filter: { active: { eq: true } }
+    ) {
       edges {
         node {
           name
-          title
+
           slug
           shortBio {
             childMarkdownRemark {
@@ -53,6 +62,7 @@ export const AuthorsQuery = graphql`
           email
           instagram
           twitter
+          active
           image {
             fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
               ...GatsbyContentfulFluid_tracedSVG

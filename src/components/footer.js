@@ -10,10 +10,10 @@ export default function Footer() {
               Home
             </div>
             <a className="my-3 block" href="/about">
-              About Us <span className="text-teal-600 text-xs p-1"></span>
+              About us <span className="text-teal-600 text-xs p-1"></span>
             </a>
             <a className="my-3 block" href="/#">
-              Partners <span className="text-teal-600 text-xs p-1">New</span>
+              Partners <span className="text-teal-600 text-xs p-1">Soon</span>
             </a>
           </div>
 
@@ -36,14 +36,17 @@ export default function Footer() {
             <a
               className="my-3 block"
               href="https://www.facebook.com/helsinkiwritersgroup/events/?ref=page_internal"
+              target="_blank"
+              rel="noreferrer"
             >
               Events <span className="text-teal-600 text-xs p-1"></span>
             </a>
 
             <a
               className="my-3 block"
-              href="https://helsinki.zoom.us/j/61067209350
-"
+              href="https://helsinki.zoom.us/j/61067209350"
+              target="_blank"
+              rel="noreferrer"
             >
               Zoom link{" "}
             </a>
@@ -59,6 +62,8 @@ export default function Footer() {
             <a
               className="my-3 block"
               href="https://www.facebook.com/helsinkiwritersgroup/?ref=page_internal"
+              target="_blank"
+              rel="noreferrer"
             >
               Facebook <span className="text-teal-600 text-xs p-1"></span>
             </a>

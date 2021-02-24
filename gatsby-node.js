@@ -4,6 +4,28 @@ const path = require("path");
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
+  const pageQuery = graphql(`
+    query {
+      allContentfulPage {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `).then((result) => {
+    result.data.allContentfulPage.edges.forEach(({ node }) => {
+      createPage({
+        path: node.slug,
+        component: path.resolve("./src/templates/page.js"),
+        context: {
+          slug: node.slug,
+        },
+      });
+    });
+  });
+
   const blogPostQuery = graphql(`
     query {
       allContentfulBlogPost {
@@ -58,5 +80,5 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     });
   });
 
-  return Promise.all([blogPostQuery, AuthorsQuery]);
+  return Promise.all([blogPostQuery, AuthorsQuery, pageQuery]);
 };
