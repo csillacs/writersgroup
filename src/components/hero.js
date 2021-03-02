@@ -6,7 +6,7 @@ import styles from "./hero.module.css";
 export default function Hero() {
   const { contentfulHeroImage } = useStaticQuery(graphql`
     query HeroImageQuery {
-      contentfulHeroImage(name: { eq: "typewriter" }) {
+      contentfulHeroImage(name: { eq: "helsinki" }) {
         name
         heroImage {
           fluid(
@@ -31,17 +31,17 @@ export default function Hero() {
       />
       <div className={styles.heroDetails}>
         <h1 className={styles.heroHeadline}>Helsinki Writers' Group</h1>
-        <p className={styles.heroText}>
-          A group of English-language creative writers based in Helsinki, we
+        {/* <p className={styles.heroText}>
+          A group of English-language creative writers based in Helsinki we
           meet every Friday to share work and talk about the writing craft.
-        </p>
+        </p> */}
         <button className={styles.heroButton}>
           <a
             href="https://www.facebook.com/helsinkiwritersgroup/events/?ref=page_internal"
             target="_blank"
             rel="noreferrer"
           >
-            Feel free to join us!
+            Join us!
           </a>
         </button>
       </div>

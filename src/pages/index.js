@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import Hero from "../components/hero";
 import Layout from "../components/layout";
 import ArticlePreview from "../components/article-preview";
+import IndexContent from "../components/index-content";
 
 class RootIndex extends React.Component {
   render() {
@@ -22,7 +23,15 @@ class RootIndex extends React.Component {
           <Helmet title={siteTitle} />
           <Hero />
           <div className="wrapper">
-            <h2 className="section-headline">Our guidelines</h2>
+            <h2 className="section-headline">Who we are, what are we doing?</h2>
+            <div className="pb-24	">
+              <IndexContent />
+            </div>
+            <h2 className="section-headline">
+              Before attending to your first workshop you might want to read
+              these posts
+            </h2>
+
             <ul className="list">
               {posts.map(({ node }) => {
                 return (

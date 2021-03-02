@@ -41,6 +41,7 @@ export default function AuthorProfile({ data, location }) {
             />
             <p>Member since: {author.memberSince}</p>
             <h3>Social media:</h3>
+
             <p>Facebook: {author.facebook ? author.facebook : "n/a"}</p>
             <p>Twitter: {author.twitter ? author.twitter : "n/a"}</p>
             <p>Instagram: {author.instagram ? author.instagram : "n/a"}</p>
@@ -116,7 +117,6 @@ export const AuthorsProfileQuery = graphql`
     contentfulPerson(slug: { eq: $slug }) {
       name
       slug
-      email
       twitter
       instagram
       facebook

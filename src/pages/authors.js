@@ -45,6 +45,11 @@ export default Authors;
 
 export const AuthorsQuery = graphql`
   query AuthorsQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
     allContentfulPerson(
       sort: { fields: name, order: ASC }
       filter: { active: { eq: true } }
@@ -59,7 +64,7 @@ export const AuthorsQuery = graphql`
               html
             }
           }
-          email
+
           instagram
           twitter
           active

@@ -5,8 +5,8 @@ export default function AboutContent() {
   // const contentfulAboutContent = something.contentfulAboutContent
   // const {contentfulAboutContent: myVariable} = something
   const { contentfulComponent } = useStaticQuery(graphql`
-    query aboutContentQuery {
-      contentfulComponent(name: { eq: "AboutContent" }) {
+    query indexContentQuery {
+      contentfulComponent(name: { eq: "IndexContent" }) {
         id
         publishDate(formatString: "MMMM Do, YYYY")
         author {
@@ -25,32 +25,18 @@ export default function AboutContent() {
 
   return (
     <div className="">
-      <p
-        style={{
-          display: "block",
-        }}
-      >
-        {" "}
-        <b>
-          {contentfulComponent.publishDate} |{" "}
-          <Link to={`/authors/${contentfulComponent.author.slug}`}>
-            {contentfulComponent.author.name}
-          </Link>
-        </b>
-      </p>
-      <small>
-        {" "}
-        Time to read: {
-          contentfulComponent.body.childMarkdownRemark.timeToRead
-        }{" "}
-        mins
-      </small>
       <div
-        className="py-20 text-justify leading-relaxed"
+        className=" text-justify leading-relaxed text-2xl"
         dangerouslySetInnerHTML={{
           __html: contentfulComponent.body.childMarkdownRemark.html,
         }}
       />
+      <Link
+        to={`/about`}
+        className=" float-right text-2xl cursor-pointer hover:underline "
+      >
+        Read more...{" "}
+      </Link>
     </div>
   );
 }
