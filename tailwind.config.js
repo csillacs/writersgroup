@@ -9,5 +9,5 @@ module.exports = {
       transform: ["hover", "focus"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

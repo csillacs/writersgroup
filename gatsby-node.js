@@ -1,4 +1,3 @@
-// const Promise = require("bluebird");
 const path = require("path");
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -17,7 +16,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   `).then((result) => {
     result.data.allContentfulPage.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
+        // path: node.slug,
+        path: `/${node.slug}/`,
+
         component: path.resolve("./src/templates/page.js"),
         context: {
           slug: node.slug,
@@ -57,18 +58,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-      allContentfulHeroImage {
-        edges {
-          node {
-            id
-          }
-        }
-      }
     }
   `).then((result) => {
-    result.data.allContentfulPerson.edges.forEach(({ node }) => {
-      console.log(node.slug);
-    });
+    // result.data.allContentfulPerson.edges.forEach(({ node }) => {
+    //   console.log(node.slug);
+    // });
     result.data.allContentfulPerson.edges.forEach(({ node }) => {
       createPage({
         path: `/authors/${node.slug}/`,

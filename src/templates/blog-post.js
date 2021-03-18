@@ -1,72 +1,75 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
-import get from "lodash/get";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
 import heroStyles from "../components/hero.module.css";
 import { DiscussionEmbed } from "disqus-react";
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = get(this.props, "data.contentfulBlogPost");
+export default function BlogPostTemplate({ data, location }) {
+  const siteTitle = data.site.siteMetadata.title;
+  const post = data.contentfulBlogPost;
+  const disqusConfig = {
+    shortname: process.env.GATSBY_DISQUS_NAME,
+    config: { identifier: post.slug, post },
+  };
+  return (
+    <Layout location={location}>
+      <div style={{ background: "#fff" }}>
+        <Helmet title={`${post.title} | ${siteTitle}`} />
+        <div className={heroStyles.hero}>
+          <Img
+            className={heroStyles.heroImage}
+            alt={post.title}
+            fluid={post.heroImage.fluid}
+          />
+        </div>
 
-    const siteTitle = get(this.props, "data.site.siteMetadata.title");
-    const disqusConfig = {
-      shortname: process.env.GATSBY_DISQUS_NAME,
-      config: { identifier: post.slug, post },
-    };
-    return (
-      <Layout location={this.props.location}>
-        <div style={{ background: "#fff" }}>
-          <Helmet title={`${post.title} | ${siteTitle}`} />
-          <div className={heroStyles.hero}>
-            <Img
-              className={heroStyles.heroImage}
-              alt={post.title}
-              fluid={post.heroImage.fluid}
-            />
-          </div>
-
-          <div className="wrapper">
-            <h1 className="section-headline">{post.title}</h1>
-            <p
-              style={{
-                display: "block",
-              }}
-            >
+        <div className="wrapper">
+          <h1 className="section-headline">{post.title}</h1>
+          <p
+            style={{
+              display: "block",
+            }}
+          >
+            {" "}
+            <b>
+              {post.publishDate} |{" "}
+              <Link
+                to={`/authors/${post.author.slug}`}
+                className="hover:underline"
+              >
+                {post.author.name}
+              </Link>
+            </b>
+          </p>
+          <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
+          <div
+            className="py-20 text-justify leading-relaxed whitespace-pre-line text-base md:text-lg "
+            dangerouslySetInnerHTML={{
+              __html: post.body.childMarkdownRemark.html,
+            }}
+          />
+          {post.publishedAt ? (
+            <div>
               {" "}
-              <b>
-                {post.publishDate} |{" "}
-                <Link
-                  to={`/authors/${post.author.slug}`}
-                  className="hover:underline"
-                >
-                  {post.author.name}
-                </Link>
-                {/* <Link to={`/authors/${node.slug}/`}>
-                  {post.author.name}
-                </Link> */}
-              </b>
-            </p>
-            <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
-            <div
-              className="py-20 text-justify leading-relaxed"
-              dangerouslySetInnerHTML={{
-                __html: post.body.childMarkdownRemark.html,
-              }}
-            />
-            <div className="py-20">
-              <DiscussionEmbed {...disqusConfig} />
+              First published at:{" "}
+              <a href={post.publishedAt} target="_blank" rel="noreferrer">
+                {post.publishedAt}
+              </a>
             </div>
+          ) : (
+            <div className="hidden" />
+          )}
+
+          <div className="py-20">
+            <DiscussionEmbed {...disqusConfig} />
           </div>
         </div>
-      </Layout>
-    );
-  }
+      </div>
+    </Layout>
+  );
 }
-
-export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -82,6 +85,7 @@ export const pageQuery = graphql`
       }
       title
       publishDate(formatString: "MMMM Do, YYYY")
+      publishedAt
       heroImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid_tracedSVG

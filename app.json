@@ -1,13 +1,13 @@
 {
-  "name": "Contentful Gatsby Starter",
-  "description": "Gatsby starter for a Contentful project.",
+  "name": "Contentful Gatsby Helsinki Writers' Group",
+  "description": "Webste for the Helsinki Writers' Group, using a Gatsby starter for a Contentful project.",
   "keywords": [
     "contentful",
     "gatsby",
     "static",
     "ssg"
   ],
-  "repository": "https://github.com/contentful-userland/gatsby-contentful-starter",
+  "repository": "https://github.com/csillacs/writersgroup",
   "success_url": "/",
   "buildpacks": [
     {

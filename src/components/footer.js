@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="bg-gray-100">
+      <div className="bg-gray-100 ">
         <div className="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-center">
           <div className="p-5 w-48 ">
             <div className="text-xs uppercase text-gray-500 font-medium">
@@ -12,8 +12,8 @@ export default function Footer() {
             <a className="my-3 block" href="/about">
               About us <span className="text-teal-600 text-xs p-1"></span>
             </a>
-            <a className="my-3 block" href="/#">
-              Partners <span className="text-teal-600 text-xs p-1">Soon</span>
+            <a className="my-3 block" href="/shop">
+              Shop <span className="text-teal-600 text-xs p-1">NEW!</span>
             </a>
           </div>
 

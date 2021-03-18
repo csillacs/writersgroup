@@ -4,11 +4,18 @@ import { useStaticQuery, graphql } from "gatsby";
 import styles from "./hero.module.css";
 
 export default function Hero() {
-  const { contentfulHeroImage } = useStaticQuery(graphql`
-    query HeroImageQuery {
-      contentfulHeroImage(name: { eq: "helsinki" }) {
-        name
-        heroImage {
+  const { contentfulComponent } = useStaticQuery(graphql`
+    query {
+      contentfulComponent(name: { eq: "HeroBlock" }) {
+        body {
+          childMarkdownRemark {
+            id
+            rawMarkdownBody
+          }
+        }
+        id
+        image {
+          id
           fluid(
             maxWidth: 1180
             maxHeight: 480
@@ -26,24 +33,27 @@ export default function Hero() {
     <div className={styles.hero}>
       <Img
         className={styles.heroImage}
-        alt={contentfulHeroImage.name}
-        fluid={contentfulHeroImage.heroImage.fluid}
+        alt={contentfulComponent.name}
+        fluid={contentfulComponent.image.fluid}
       />
       <div className={styles.heroDetails}>
-        <h1 className={styles.heroHeadline}>Helsinki Writers' Group</h1>
-        {/* <p className={styles.heroText}>
-          A group of English-language creative writers based in Helsinki we
-          meet every Friday to share work and talk about the writing craft.
-        </p> */}
-        <button className={styles.heroButton}>
+        <h1 className={styles.heroHeadline}>
+          {contentfulComponent.body.childMarkdownRemark.rawMarkdownBody}
+        </h1>
+
+        {/* <button className={styles.heroButton}>
           <a
-            href="https://www.facebook.com/helsinkiwritersgroup/events/?ref=page_internal"
-            target="_blank"
-            rel="noreferrer"
+          href="https://www.facebook.com/helsinkiwritersgroup/events/?ref=page_internal"
+          target="_blank"
+          rel="noreferrer"
           >
-            Join us!
+          Join us!
           </a>
-        </button>
+        </button> */}
+        <p className="text-sm pb-20 pt-10 text-center tracking-wide">
+          {" "}
+          ESTABLISHED IN 2008
+        </p>
       </div>
     </div>
   );

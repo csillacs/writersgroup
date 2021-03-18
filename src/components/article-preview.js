@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 export default ({ article }) => (
-  <div>
+  <div className="text-justify">
     <Img alt="" fluid={article.heroImage.fluid} />
     <h3 className="pt-1 text-2xl">
       <Link to={`/blog/${article.slug}`}>{article.title}</Link>
@@ -13,7 +13,6 @@ export default ({ article }) => (
     </small>
 
     <p
-      className="text-justify"
       dangerouslySetInnerHTML={{
         __html: article.description.childMarkdownRemark.html,
       }}

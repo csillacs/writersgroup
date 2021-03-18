@@ -3,9 +3,9 @@ import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
-import AllBlogPosts from "../components/all-blog-posts";
+import Fiction from "../components/fiction-content";
 
-export default function BlogIndex({ data, location }) {
+export default function BlogFiction({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
@@ -14,8 +14,8 @@ export default function BlogIndex({ data, location }) {
         <Helmet title={siteTitle} />
         <Hero />
 
-        <div className="pt-14 text-center	text-lg md:text-3xl">
-          <Link to="/blog" className="hover:underline text-3xl md:text-5xl	">
+        <div className="pt-14 text-center text-lg md:text-3xl">
+          <Link to="/blog" className="hover:underline">
             {" "}
             All posts{" "}
           </Link>
@@ -25,7 +25,7 @@ export default function BlogIndex({ data, location }) {
             Poetry{" "}
           </Link>{" "}
           /{" "}
-          <Link to="/fiction" className="hover:underline">
+          <Link to="/fiction" className="hover:underline text-3xl md:text-5xl">
             {" "}
             Fiction{" "}
           </Link>{" "}
@@ -36,7 +36,7 @@ export default function BlogIndex({ data, location }) {
           </Link>
         </div>
         <div className="wrapper">
-          <AllBlogPosts />
+          <Fiction />
         </div>
       </div>
     </Layout>
@@ -44,7 +44,7 @@ export default function BlogIndex({ data, location }) {
 }
 
 export const pageQuery = graphql`
-  query BlogIndexQuery {
+  query BlogFictionQuery {
     site {
       siteMetadata {
         title

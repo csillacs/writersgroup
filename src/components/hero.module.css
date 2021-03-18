@@ -3,72 +3,60 @@
   background: #000;
   color: #fff;
   text-align: center;
+ 
 }
 
 .heroImage {
-  /*
-    Ensure golden ratio for the hero size while limiting it to some extend to
-    the viewport width
-  */
+
   /* height: 61.8vh; */
   height: 80.8vh;
+  max-height: 550px;
 
-  max-height: 400px;
 }
 
 .heroDetails {
   position: absolute;
-  /* background: rgba(0, 0, 0, 0.7); */
-  left: 50%;
+  /* left: 32%; */
   bottom: 0;
-  transform: translate(-50%);
+  /* transform: translate(-50%); */
+  line-height: 1.2;
   padding: 0 0.5em;
+  padding:10;
+  padding-left:20 ;
+padding-right: 20;
+
 }
 .heroHeadline {
-  letter-spacing: 2px;
+  letter-spacing: 7px;
+  text-shadow: black 8px 10px 10px;
 
 }
-.heroText{
 
-}
-.heroButton {
-background:transparent;
-color:#fff;
-border: 1px solid #fff; 
-padding: 8px 20px;
-cursor: pointer;
-border-radius: 5px;
-box-shadow: 3px 3px 3px #888888;
-margin-top: 15px;
-margin-bottom: 30px;
-}
 
-.heroButton:hover {
-  opacity:70%;
- 
-  } 
+
+
 
 
   @media(min-width: 300px) {
     .heroDetails {
-      font-size: 20px;
+      font-size: 30px;
       }
     }
   @media(min-width: 400px) {
     .heroDetails {
-      font-size: 22px;
+      font-size: 45px;
     }
   }
 
 @media(min-width: 600px) {
   .heroDetails {
-    font-size: 24px;
+    font-size: 50px;
   }
 }
 
 @media(min-width: 1000px) {
   .heroDetails {
-    font-size: 28px;
+    font-size: 60px;
   }
 }
 

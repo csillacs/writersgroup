@@ -8,6 +8,7 @@
     "url": "https://github.com/contentful/starter-gatsby-blog/issues"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.4",
     "disqus-react": "^1.0.11",
     "downshift": "^6.1.0",

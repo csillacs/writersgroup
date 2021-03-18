@@ -21,10 +21,10 @@ export default function AuthorProfile({ data, location }) {
         <div className={heroStyles.hero}>
           <Hero />
         </div>
-        <div className="wrapper">
+        <div className="wrapper ">
           <h1 className="section-headline">{author.name}</h1>
-          <fieldset>
-            <div className=" float-right w-1/3 pl-10	">
+          <div>
+            <div className=" float-right w-1/3 pl-10">
               {author.image ? (
                 <Img alt={author.name} fluid={author.image.fluid} />
               ) : (
@@ -34,19 +34,19 @@ export default function AuthorProfile({ data, location }) {
 
             <h3> Bio:</h3>
             <div
-              className="text-justify leading-relaxed"
+              className="text-justify leading-relaxed whitespace-pre-line"
               dangerouslySetInnerHTML={{
                 __html: author.shortBio.childMarkdownRemark.html,
               }}
             />
             <p>Member since: {author.memberSince}</p>
-            <h3>Social media:</h3>
+            <h3 className="pt-5">Social media:</h3>
 
             <p>Facebook: {author.facebook ? author.facebook : "n/a"}</p>
             <p>Twitter: {author.twitter ? author.twitter : "n/a"}</p>
             <p>Instagram: {author.instagram ? author.instagram : "n/a"}</p>
 
-            <h3>Posts: </h3>
+            <h3 className="pt-5">Posts: </h3>
             <div>
               <ul>
                 {posts.map(({ node }) => {
@@ -59,7 +59,7 @@ export default function AuthorProfile({ data, location }) {
               </ul>
             </div>
 
-            <h3>Shop: </h3>
+            <h3 className="pt-5">Shop: </h3>
             {/* {publications.link ? (
               <div>
                 <ul>
@@ -78,7 +78,7 @@ export default function AuthorProfile({ data, location }) {
               <p>n/a</p>
             )} */}
 
-            <div>
+            <div className="pb-20">
               <ul>
                 {publications.edges.map(({ node }) => {
                   return (
@@ -91,7 +91,7 @@ export default function AuthorProfile({ data, location }) {
                 })}
               </ul>
             </div>
-          </fieldset>
+          </div>
         </div>
       </div>
     </Layout>
@@ -122,7 +122,7 @@ export const AuthorsProfileQuery = graphql`
       facebook
       active
 
-      memberSince(formatString: "MMMM Do, YYYY")
+      memberSince(formatString: "MMMM YYYY")
 
       image {
         fluid(maxWidth: 1180, background: "rgb:000000") {

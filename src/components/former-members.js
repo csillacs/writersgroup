@@ -23,7 +23,7 @@ export default function FormerMembers() {
 
   return (
     <div>
-      <h2 className="pt-10">Former members:</h2>
+      <h2 className="pt-10 pb-5">Former members:</h2>
       <ul className="">
         {allContentfulPerson.edges.map(({ node }) => {
           return (
