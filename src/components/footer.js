@@ -56,9 +56,9 @@ export default function Footer() {
             <div className="text-xs uppercase text-gray-500 font-medium">
               Contact us
             </div>
-            <a className="my-3 block" href="/contact">
-              Email <span className="text-teal-600 text-xs p-1"></span>
-            </a>
+            {/* <a className="my-3 block" href="/contact"> */}
+            {/* Email <span className="text-teal-600 text-xs p-1"></span> */}
+            {/* </a> */}
             <a
               className="my-3 block"
               href="https://www.facebook.com/helsinkiwritersgroup/?ref=page_internal"
