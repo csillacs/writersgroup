@@ -1,5 +1,7 @@
 # Helsinki Writers Group
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/73f43d73-8994-4f5b-90b1-1df291ac2b89/deploy-status)](https://app.netlify.com/sites/helsinki-writers/deploys)
+
 Created using:
 [Gatsby](http://gatsbyjs.com/) 
 and [Contentful](https://www.contentful.com)

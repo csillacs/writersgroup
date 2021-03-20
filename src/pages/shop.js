@@ -22,7 +22,7 @@ export default function Shop({ data, location }) {
           <ul className="list">
             {books.map(({ node }) => {
               return (
-                <li key={node.slug}>
+                <li key={node.id}>
                   <BookPreview books={node} />
                 </li>
               );
@@ -44,6 +44,7 @@ export const shopPageQuery = graphql`
     allContentfulPublication(sort: { fields: author___name, order: ASC }) {
       edges {
         node {
+          id
           author {
             name
             slug
