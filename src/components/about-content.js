@@ -46,7 +46,7 @@ export default function AboutContent() {
         mins
       </small>
       <div
-        className="py-10 text-justify leading-relaxed whitespace-pre-line text-base md:text-lg"
+        className="py-10 leading-relaxed whitespace-pre-line text-base md:text-lg"
         dangerouslySetInnerHTML={{
           __html: contentfulComponent.body.childMarkdownRemark.html,
         }}

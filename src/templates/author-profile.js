@@ -34,7 +34,7 @@ export default function AuthorProfile({ data, location }) {
 
             <h3> Bio:</h3>
             <div
-              className="text-justify leading-relaxed whitespace-pre-line"
+              className="leading-relaxed whitespace-pre-line"
               dangerouslySetInnerHTML={{
                 __html: author.shortBio.childMarkdownRemark.html,
               }}

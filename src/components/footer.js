@@ -76,7 +76,9 @@ export default function Footer() {
           className="flex pb-5 px-3 m-auto pt-5 border-t text-gray-800 text-sm flex-col
       md:flex-row max-w-6xl"
         >
-          <div className="m-auto">© Copyright 2021. All Rights Reserved.</div>
+          <div className="m-auto">
+            © 2021. Created by Csilla Csépke, Helsinki Writers Group
+          </div>
         </div>
       </div>
     </div>
