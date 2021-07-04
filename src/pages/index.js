@@ -11,15 +11,13 @@ export default function RootIndex({ data, location }) {
 
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
-        <div className="wrapper">
-          <div className="pb-24	">
-            <IndexContent />
-          </div>
-          <General />
+      <Helmet title={siteTitle} />
+      <Hero />
+      <div className="wrapper">
+        <div className="pb-24	">
+          <IndexContent />
         </div>
+        <General />
       </div>
     </Layout>
   );

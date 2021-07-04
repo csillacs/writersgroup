@@ -5,9 +5,17 @@ module.exports = {
     "./src/**/*.tsx",
     "./src/**/*.css",
   ],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: "class",
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gray: {
+          20: "#e5e5e5",
+          750: "#2f353e",
+          850: "#262c33",
+        },
+      },
+    },
   },
   variants: {
     extend: {

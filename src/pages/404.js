@@ -10,15 +10,12 @@ export default function PageNotFound({ data, location }) {
 
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
-
-        <div className="wrapper">
-          <h2 className="section-headline">Ooops!</h2>
-          <div className="py-20 text-justify leading-relaxed text-2xl">
-            Sorry, the page you were looking for could not be found.
-          </div>
+      <Helmet title={siteTitle} />
+      <Hero />
+      <div className="wrapper">
+        <h2 className="section-headline">Ooops!</h2>
+        <div className="py-20 text-justify leading-relaxed text-2xl">
+          Sorry, the page you were looking for could not be found.
         </div>
       </div>
     </Layout>

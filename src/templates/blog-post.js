@@ -15,56 +15,54 @@ export default function BlogPostTemplate({ data, location }) {
   };
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={`${post.title} | ${siteTitle}`} />
-        <div className={heroStyles.hero}>
-          <Img
-            className={heroStyles.heroImage}
-            alt={post.title}
-            fluid={post.heroImage.fluid}
-          />
-        </div>
+      <Helmet title={`${post.title} | ${siteTitle}`} />
+      <div className={heroStyles.hero}>
+        <Img
+          className={heroStyles.heroImage}
+          alt={post.title}
+          fluid={post.heroImage.fluid}
+        />
+      </div>
 
-        <div className="wrapper">
-          <h1 className="section-headline">{post.title}</h1>
-          <p
-            style={{
-              display: "block",
-            }}
-          >
+      <div className="wrapper dark:text-gray-300">
+        <h1 className="section-headline">{post.title}</h1>
+        <p
+          style={{
+            display: "block",
+          }}
+        >
+          {" "}
+          <b>
+            {post.publishDate} |{" "}
+            <Link
+              to={`/authors/${post.author.slug}`}
+              className="hover:underline"
+            >
+              {post.author.name}
+            </Link>
+          </b>
+        </p>
+        <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
+        <div
+          className="py-20  leading-relaxed whitespace-pre-line text-base md:text-lg "
+          dangerouslySetInnerHTML={{
+            __html: post.body.childMarkdownRemark.html,
+          }}
+        />
+        {post.publishedAt ? (
+          <div>
             {" "}
-            <b>
-              {post.publishDate} |{" "}
-              <Link
-                to={`/authors/${post.author.slug}`}
-                className="hover:underline"
-              >
-                {post.author.name}
-              </Link>
-            </b>
-          </p>
-          <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
-          <div
-            className="py-20  leading-relaxed whitespace-pre-line text-base md:text-lg "
-            dangerouslySetInnerHTML={{
-              __html: post.body.childMarkdownRemark.html,
-            }}
-          />
-          {post.publishedAt ? (
-            <div>
-              {" "}
-              First published at:{" "}
-              <a href={post.publishedAt} target="_blank" rel="noreferrer">
-                {post.publishedAt}
-              </a>
-            </div>
-          ) : (
-            <div className="hidden" />
-          )}
-
-          <div className="py-20">
-            <DiscussionEmbed {...disqusConfig} />
+            First published at:{" "}
+            <a href={post.publishedAt} target="_blank" rel="noreferrer">
+              {post.publishedAt}
+            </a>
           </div>
+        ) : (
+          <div className="hidden" />
+        )}
+
+        <div className="py-20">
+          <DiscussionEmbed {...disqusConfig} />
         </div>
       </div>
     </Layout>

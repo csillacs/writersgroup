@@ -11,13 +11,11 @@ export default function Contact({ data, location }) {
 
   return (
     <Layout>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
-        <div className="wrapper">
-          <h2 className="section-headline">Contact us</h2>
-          <ContactForm />
-        </div>
+      <Helmet title={siteTitle} />
+      <Hero />
+      <div className="wrapper">
+        <h2 className="section-headline">Contact us</h2>
+        <ContactForm />
       </div>
     </Layout>
   );

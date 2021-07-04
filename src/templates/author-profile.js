@@ -16,51 +16,50 @@ export default function AuthorProfile({ data, location }) {
   return (
     <Layout location={location}>
       {/* <Layout location={this.props.location}> */}
-      <div style={{ background: "#fff" }}>
-        <Helmet title={`${author.name} | ${siteTitle}`} />
-        <div className={heroStyles.hero}>
-          <Hero />
-        </div>
-        <div className="wrapper ">
-          <h1 className="section-headline">{author.name}</h1>
+      <Helmet title={`${author.name} | ${siteTitle}`} />
+      <div className={heroStyles.hero}>
+        <Hero />
+      </div>
+      <div className="wrapper ">
+        <h1 className="section-headline">{author.name}</h1>
+        <div>
+          <div className=" float-right w-1/3 pl-10">
+            {author.image ? (
+              <Img alt={author.name} fluid={author.image.fluid} />
+            ) : (
+              <div className="hidden" />
+            )}
+          </div>
+
+          <h3> Bio:</h3>
+          <div
+            className="leading-relaxed whitespace-pre-line"
+            dangerouslySetInnerHTML={{
+              __html: author.shortBio.childMarkdownRemark.html,
+            }}
+          />
+          <p>Member since: {author.memberSince}</p>
+          <h3 className="pt-5">Social media:</h3>
+
+          <p>Facebook: {author.facebook ? author.facebook : "n/a"}</p>
+          <p>Twitter: {author.twitter ? author.twitter : "n/a"}</p>
+          <p>Instagram: {author.instagram ? author.instagram : "n/a"}</p>
+
+          <h3 className="pt-5">Posts: </h3>
           <div>
-            <div className=" float-right w-1/3 pl-10">
-              {author.image ? (
-                <Img alt={author.name} fluid={author.image.fluid} />
-              ) : (
-                <div className="hidden" />
-              )}
-            </div>
+            <ul>
+              {posts.map(({ node }) => {
+                return (
+                  <li className="cursor-pointer hover:underline">
+                    <Link to={`/blog/${node.slug}/`}>{node.title}</Link>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
 
-            <h3> Bio:</h3>
-            <div
-              className="leading-relaxed whitespace-pre-line"
-              dangerouslySetInnerHTML={{
-                __html: author.shortBio.childMarkdownRemark.html,
-              }}
-            />
-            <p>Member since: {author.memberSince}</p>
-            <h3 className="pt-5">Social media:</h3>
-
-            <p>Facebook: {author.facebook ? author.facebook : "n/a"}</p>
-            <p>Twitter: {author.twitter ? author.twitter : "n/a"}</p>
-            <p>Instagram: {author.instagram ? author.instagram : "n/a"}</p>
-
-            <h3 className="pt-5">Posts: </h3>
-            <div>
-              <ul>
-                {posts.map(({ node }) => {
-                  return (
-                    <li className="cursor-pointer hover:underline">
-                      <Link to={`/blog/${node.slug}/`}>{node.title}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-
-            <h3 className="pt-5">Shop: </h3>
-            {/* {publications.link ? (
+          <h3 className="pt-5">Shop: </h3>
+          {/* {publications.link ? (
               <div>
                 <ul>
                   {publications.edges.map(({ node }) => {
@@ -78,19 +77,18 @@ export default function AuthorProfile({ data, location }) {
               <p>n/a</p>
             )} */}
 
-            <div className="pb-20">
-              <ul>
-                {publications.edges.map(({ node }) => {
-                  return (
-                    <li className="cursor-pointer hover:underline">
-                      <Link to={`${node.link}/`} target="_blank">
-                        {node.name}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          <div className="pb-20">
+            <ul>
+              {publications.edges.map(({ node }) => {
+                return (
+                  <li className="cursor-pointer hover:underline">
+                    <Link to={`${node.link}/`} target="_blank">
+                      {node.name}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
       </div>

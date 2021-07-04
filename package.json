@@ -1,12 +1,9 @@
 {
-  "name": "contentful-starter-gatsby-blog",
-  "description": "Contentful Gatsby Starter Blog",
+  "name": "helsinki-writers-group",
+  "description": "Helsinki Writers Group website using Contentful Gatsby",
   "private": true,
   "version": "0.0.1",
-  "author": "Contentful <opensource@contentful.com>",
-  "bugs": {
-    "url": "https://github.com/contentful/starter-gatsby-blog/issues"
-  },
+  
   "dependencies": {
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.4",
@@ -15,6 +12,7 @@
     "gatsby": "^2.23.9",
     "gatsby-image": "^2.4.8",
     "gatsby-plugin-algolia": "^0.16.3",
+    "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-disqus": "^1.2.2",
     "gatsby-plugin-pinterest-twitter-facebook": "^1.11.2",
     "gatsby-plugin-postcss": "^3.7.0",
@@ -40,7 +38,7 @@
   "engines": {
     "node": ">=10.13.0"
   },
-  "homepage": "https://github.com/contentful/starter-gatsby-blog#readme",
+  "homepage": "",
   "keywords": [
     "gatsby",
     "contentful",
@@ -50,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contentful/starter-gatsby-blog.git"
+    "url": "https://github.com/csillacs/writersgroup"
   },
   "scripts": {
     "dev": "gatsby develop",

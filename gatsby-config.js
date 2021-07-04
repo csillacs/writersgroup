@@ -45,6 +45,7 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sharp",
     "gatsby-plugin-postcss",
+    "gatsby-plugin-dark-mode",
     "gatsby-plugin-readingtime-contentful",
     {
       resolve: "gatsby-source-contentful",

@@ -31,7 +31,7 @@ export default function AboutContent() {
         {/* <div className="text-base sm:text-lg "> */}
         {/* lg:text-xl md:text-xl sm:text-lg xs:text-sm */}
         <div
-          className="pt-14 text-justify whitespace-pre-line text-gray-500 leading-relaxed 	"
+          className="pt-14 text-justify whitespace-pre-line text-gray-500 leading-relaxed dark:text-gray-500 	"
           dangerouslySetInnerHTML={{
             __html: contentfulComponent.body.childMarkdownRemark.html,
           }}

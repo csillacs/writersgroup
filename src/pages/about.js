@@ -11,18 +11,14 @@ export default function About({ data, location }) {
 
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
-
-        <div className="wrapper">
-          <h2 className="section-headline">About us</h2>
-          <div class="lg:flex">
-            <AboutContent />
-
-            <div className="lg:pt-20 lg:ml-10">
-              <FacebookEvents />
-            </div>
+      <Helmet title={siteTitle} />
+      <Hero />
+      <div className="wrapper">
+        <h2 className="section-headline">About us</h2>
+        <div class="lg:flex">
+          <AboutContent />
+          <div className="lg:pt-20 lg:ml-10">
+            <FacebookEvents />
           </div>
         </div>
       </div>

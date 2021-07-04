@@ -12,23 +12,21 @@ export default function Shop({ data, location }) {
 
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
+      <Helmet title={siteTitle} />
+      <Hero />
 
-        <div className="wrapper">
-          <h2 className="section-headline">Shop</h2>
+      <div className="wrapper">
+        <h2 className="section-headline">Shop</h2>
 
-          <ul className="list">
-            {books.map(({ node }) => {
-              return (
-                <li key={node.id}>
-                  <BookPreview books={node} />
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <ul className="list">
+          {books.map(({ node }) => {
+            return (
+              <li key={node.id}>
+                <BookPreview books={node} />
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </Layout>
   );

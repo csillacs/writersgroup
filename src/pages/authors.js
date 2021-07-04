@@ -12,24 +12,20 @@ export default function Authors({ data, location }) {
 
   return (
     <Layout location={location}>
-      <div style={{ background: "#fff" }}>
-        <Helmet title={siteTitle} />
-        <Hero />
-
-        <div className="wrapper text-base md:text-lg">
-          <h2 className="section-headline">Authors</h2>
-          <ul className="">
-            {authors.map(({ node }) => {
-              return (
-                <li key={node.slug}>
-                  <AuthorPreview author={node} />
-                </li>
-              );
-            })}
-          </ul>
-
-          <FormerMembers />
-        </div>
+      <Helmet title={siteTitle} />
+      <Hero />
+      <div className="wrapper text-base md:text-lg">
+        <h2 className="section-headline">Authors</h2>
+        <ul className="">
+          {authors.map(({ node }) => {
+            return (
+              <li key={node.slug}>
+                <AuthorPreview author={node} />
+              </li>
+            );
+          })}
+        </ul>
+        <FormerMembers />
       </div>
     </Layout>
   );
