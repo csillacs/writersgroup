@@ -23,7 +23,7 @@ export default function AuthorProfile({ data, location }) {
       <div className="wrapper ">
         <h1 className="section-headline">{author.name}</h1>
         <div>
-          <div className=" float-right w-1/3 pl-10">
+          <div className="md:float-right md:w-1/3 md:pl-10">
             {author.image ? (
               <Img alt={author.name} fluid={author.image.fluid} />
             ) : (
