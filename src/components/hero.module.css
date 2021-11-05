@@ -6,8 +6,8 @@
 }
 
 .heroImage {
-  /* height: 61.8vh; */
-  height: 80.8vh;
+  height: 61.8vh;
+  /* height: 80.8vh; */
   max-height: 550px;
 }
 
@@ -34,19 +34,19 @@
 }
 @media (min-width: 400px) {
   .heroDetails {
-    font-size: 45px;
+    font-size: 35px;
   }
 }
 
 @media (min-width: 600px) {
   .heroDetails {
-    font-size: 50px;
+    font-size: 45px;
   }
 }
 
 @media (min-width: 1000px) {
   .heroDetails {
-    font-size: 60px;
+    font-size: 55px;
   }
 }
 

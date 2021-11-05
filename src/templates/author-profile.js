@@ -23,7 +23,7 @@ export default function AuthorProfile({ data, location }) {
       <div className="wrapper ">
         <h1 className="section-headline">{author.name}</h1>
         <div>
-          <div className="md:float-right md:w-1/3 md:pl-10">
+          <div className="md:float-right md:w-2/5 md:pl-10">
             {author.image ? (
               <Img alt={author.name} fluid={author.image.fluid} />
             ) : (
@@ -124,7 +124,7 @@ export const AuthorsProfileQuery = graphql`
 
       image {
         fluid(maxWidth: 1180, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
       shortBio {
