@@ -22,7 +22,7 @@ export default function Hero() {
             resizingBehavior: PAD
             background: "rgb:000000"
           ) {
-            ...GatsbyContentfulFluid_tracedSVG
+            ...GatsbyContentfulFluid
           }
         }
       }

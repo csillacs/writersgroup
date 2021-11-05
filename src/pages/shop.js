@@ -51,7 +51,7 @@ export const shopPageQuery = graphql`
           link
           image {
             fluid(maxWidth: 180, maxHeight: 240, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
+              ...GatsbyContentfulFluid
             }
           }
         }

@@ -10,16 +10,18 @@ export default function RootIndex({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
 
   return (
-    <Layout location={location}>
-      <Helmet title={siteTitle} />
-      <Hero />
-      <div className="wrapper">
-        <div className="pb-24	">
-          <IndexContent />
+    <div id="root">
+      <Layout location={location}>
+        <Helmet title={siteTitle} />
+        <Hero />
+        <div className="wrapper">
+          <div className="pb-24	">
+            <IndexContent />
+          </div>
+          <General />
         </div>
-        <General />
-      </div>
-    </Layout>
+      </Layout>
+    </div>
   );
 }
 
