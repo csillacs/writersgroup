@@ -63,7 +63,7 @@ export default function AuthorProfile({ data, location }) {
             </ul>
           </div>
 
-          {publications.edges.name ? <h3 className="pt-5">Shop: </h3> : <></>}
+          {publications ? <h3 className="pt-5">Shop: </h3> : <></>}
 
           <div className="pb-20">
             <ul>

@@ -44,7 +44,7 @@ export default function Footer() {
 
             <a
               className="my-3 block"
-              href="https://us02web.zoom.us/j/87003211410?pwd=QVIxeUhpYjcvc2tQQ21VWC93enkwdz09&fbclid=IwAR33S1UeFMrCp4JrOyekkrXG0-05vFiTAEulR9jmyV_BN5pcfdqYUiG0ilE#success"
+              href="https://us02web.zoom.us/j/87432972956"
               target="_blank"
               rel="noreferrer"
             >
