@@ -50,7 +50,7 @@ export default function BlogPostTemplate({ data, location }) {
           }}
         />
 
-        {post.postImage.map((image) => {
+        {post.postImage && post.postImage.map((image) => {
           return (
             <div className="md:px-20 pb-10">
               <Img alt="" fluid={image.fluid} />
