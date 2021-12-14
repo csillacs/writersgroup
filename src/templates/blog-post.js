@@ -49,6 +49,15 @@ export default function BlogPostTemplate({ data, location }) {
             __html: post.body.childMarkdownRemark.html,
           }}
         />
+
+        {post.postImage.map((image) => {
+          return (
+            <div className="md:px-20 pb-10">
+              <Img alt="" fluid={image.fluid} />
+            </div>
+          );
+        })}
+
         {post.publishedAt ? (
           <div>
             {" "}
@@ -58,7 +67,7 @@ export default function BlogPostTemplate({ data, location }) {
             </a>
           </div>
         ) : (
-          <div className="hidden" />
+          <></>
         )}
 
         <div className="py-20">
@@ -85,6 +94,11 @@ export const pageQuery = graphql`
       publishDate(formatString: "MMMM Do, YYYY")
       publishedAt
       heroImage {
+        fluid(maxWidth: 1180, background: "rgb:000000") {
+          ...GatsbyContentfulFluid
+        }
+      }
+      postImage {
         fluid(maxWidth: 1180, background: "rgb:000000") {
           ...GatsbyContentfulFluid
         }

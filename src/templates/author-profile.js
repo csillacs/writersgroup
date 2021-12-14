@@ -27,7 +27,7 @@ export default function AuthorProfile({ data, location }) {
             {author.image ? (
               <Img alt={author.name} fluid={author.image.fluid} />
             ) : (
-              <div className="hidden" />
+              <></>
             )}
           </div>
 
@@ -39,13 +39,18 @@ export default function AuthorProfile({ data, location }) {
             }}
           />
           <p>Member since: {author.memberSince}</p>
-          <h3 className="pt-5">Social media:</h3>
 
-          <p>Facebook: {author.facebook ? author.facebook : "n/a"}</p>
-          <p>Twitter: {author.twitter ? author.twitter : "n/a"}</p>
-          <p>Instagram: {author.instagram ? author.instagram : "n/a"}</p>
+          {author.facebook || author.twitter || author.instagram ? (
+            <h3 className="pt-5">Social media:</h3>
+          ) : (
+            <></>
+          )}
+          {author.facebook ? <p>Facebook: {author.facebook} </p> : <></>}
+          {author.twitter ? <p>Twitter: {author.twitter} </p> : <></>}
+          {author.instagram ? <p>Instagram: {author.instagram} </p> : <></>}
 
-          <h3 className="pt-5">Posts: </h3>
+          {posts ? <h3 className="pt-5">Posts: </h3> : <></>}
+
           <div>
             <ul>
               {posts.map(({ node }) => {
@@ -58,24 +63,7 @@ export default function AuthorProfile({ data, location }) {
             </ul>
           </div>
 
-          <h3 className="pt-5">Shop: </h3>
-          {/* {publications.link ? (
-              <div>
-                <ul>
-                  {publications.edges.map(({ node }) => {
-                    return (
-                      <li className="cursor-pointer hover:underline">
-                        <Link to={`${node.link}/`} target="_blank">
-                          {node.name}
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ) : (
-              <p>n/a</p>
-            )} */}
+          {publications.edges.name ? <h3 className="pt-5">Shop: </h3> : <></>}
 
           <div className="pb-20">
             <ul>
