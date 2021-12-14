@@ -15,10 +15,6 @@ gh repo clone csillacs/writersgroup
 $ npm install
 ```
 
-
-
-
-
 ## Crucial Commands
 
 ### `npm run dev`
@@ -32,4 +28,3 @@ Run a production build into `./public`. The result is ready to be put on any sta
 ### `npm run serve`
 
 Spin up a production-ready server with your blog. Don't forget to build your page beforehand.
-
