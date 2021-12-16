@@ -7,7 +7,6 @@ Created using:
 and [Contentful](https://www.contentful.com)
 using [Gatsby Contentful Starter](https://github.com/contentful-userland/gatsby-contentful-starter) as a base.
 
-
 ### Get the source code and install dependencies.
 
 ```
@@ -28,3 +27,5 @@ Run a production build into `./public`. The result is ready to be put on any sta
 ### `npm run serve`
 
 Spin up a production-ready server with your blog. Don't forget to build your page beforehand.
+
+
