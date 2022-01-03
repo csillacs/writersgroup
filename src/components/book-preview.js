@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import { Link } from "gatsby";
 
 export default ({ books }) => (
-  <div className="text-justify text-base p-2  ">
+  <div className="text-left text-base p-2  ">
     <Img alt="" fluid={books.image.fluid} />
     <Link
       to={`/authors/${books.author.slug}`}
