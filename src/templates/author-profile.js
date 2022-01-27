@@ -30,10 +30,7 @@ export default function AuthorProfile({ data, location }) {
               <></>
             )}
           </div>
-
-
           <h3 className="py-5"> Bio:</h3>
-
           <div
             className=""
             dangerouslySetInnerHTML={{
@@ -47,9 +44,9 @@ export default function AuthorProfile({ data, location }) {
           ) : (
             <></>
           )}
-          {author.facebook ? <p >Facebook: {author.facebook} </p> : <></>}
-          {author.twitter ? <p  >Twitter: {author.twitter} </p> : <></>}
-          {author.instagram ? <p  >Instagram: {author.instagram} </p> : <></>}
+          {author.facebook ? <p>Facebook: {author.facebook} </p> : <></>}
+          {author.twitter ? <p>Twitter: {author.twitter} </p> : <></>}
+          {author.instagram ? <p>Instagram: {author.instagram} </p> : <></>}
 
           {posts ? <h3 className="py-5">Posts: </h3> : <></>}
 
@@ -80,9 +77,7 @@ export default function AuthorProfile({ data, location }) {
               })}
             </ul>
           </div>
-          
         </div>
-        
       </div>
     </Layout>
   );
