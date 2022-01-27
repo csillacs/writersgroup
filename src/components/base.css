@@ -43,7 +43,7 @@ a {
 .wrapper {
   width: calc(100% - 20vmin);
   margin: 0 auto;
-  padding: 5vmin;
+  padding: 2vmin;
 }
 
 .list {
