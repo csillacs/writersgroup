@@ -44,7 +44,7 @@ export default function BlogPostTemplate({ data, location }) {
         </p>
         <small> {post.body.childMarkdownRemark.timeToRead} mins read</small>
         <div
-          className="py-20 leading-relaxed whitespace-pre-line text-base md:text-lg md:px-20"
+          className="py-20 md:leading-relaxed whitespace-pre-line text-base md:text-lg md:px-20"
           dangerouslySetInnerHTML={{
             __html: post.body.childMarkdownRemark.html,
           }}

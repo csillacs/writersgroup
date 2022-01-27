@@ -20,7 +20,7 @@ export default function AuthorProfile({ data, location }) {
       <div className={heroStyles.hero}>
         <Hero />
       </div>
-      <div className="wrapper ">
+      <div className="wrapper text-base md:text-lg md:leading-relaxed whitespace-pre-line">
         <h1 className="section-headline">{author.name}</h1>
         <div>
           <div className="md:float-right md:w-2/5 md:pl-10">
@@ -31,9 +31,11 @@ export default function AuthorProfile({ data, location }) {
             )}
           </div>
 
-          <h3> Bio:</h3>
+
+          <h3 className="py-5"> Bio:</h3>
+
           <div
-            className="leading-relaxed whitespace-pre-line"
+            className=""
             dangerouslySetInnerHTML={{
               __html: author.shortBio.childMarkdownRemark.html,
             }}
@@ -41,15 +43,15 @@ export default function AuthorProfile({ data, location }) {
           <p>Member since: {author.memberSince}</p>
 
           {author.facebook || author.twitter || author.instagram ? (
-            <h3 className="pt-5">Social media:</h3>
+            <h3 className="py-5">Social media:</h3>
           ) : (
             <></>
           )}
-          {author.facebook ? <p>Facebook: {author.facebook} </p> : <></>}
-          {author.twitter ? <p>Twitter: {author.twitter} </p> : <></>}
-          {author.instagram ? <p>Instagram: {author.instagram} </p> : <></>}
+          {author.facebook ? <p >Facebook: {author.facebook} </p> : <></>}
+          {author.twitter ? <p  >Twitter: {author.twitter} </p> : <></>}
+          {author.instagram ? <p  >Instagram: {author.instagram} </p> : <></>}
 
-          {posts ? <h3 className="pt-5">Posts: </h3> : <></>}
+          {posts ? <h3 className="py-5">Posts: </h3> : <></>}
 
           <div>
             <ul>
@@ -63,7 +65,7 @@ export default function AuthorProfile({ data, location }) {
             </ul>
           </div>
 
-          {publications ? <h3 className="pt-5">Shop: </h3> : <></>}
+          {publications ? <h3 className="py-5">Shop: </h3> : <></>}
 
           <div className="pb-20">
             <ul>
@@ -78,7 +80,9 @@ export default function AuthorProfile({ data, location }) {
               })}
             </ul>
           </div>
+          
         </div>
+        
       </div>
     </Layout>
   );
