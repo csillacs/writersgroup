@@ -6,7 +6,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.0",
     "autoprefixer": "^10.4.2",
-    "babel-preset-gatsby": "^2.5.2",
+    "babel-preset-gatsby": "^2.6.0",
     "disqus-react": "^1.1.2",
     "downshift": "^6.1.7",
     "gatsby": "^2.23.9",
@@ -26,8 +26,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-instantsearch": "^6.21.0",
-    "tailwindcss": "^3.0.16"
+    "react-instantsearch": "^6.21.1",
+    "tailwindcss": "^3.0.17"
   },
   "devDependencies": {
     "contentful-import": "^8.2.28",
