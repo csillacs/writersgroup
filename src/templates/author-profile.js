@@ -7,6 +7,8 @@ import Layout from "../components/layout";
 import heroStyles from "../components/hero.module.css";
 import Hero from "../components/hero";
 
+import { FaFacebookSquare, FaInstagram, FaTwitter } from "react-icons/fa";
+
 export default function AuthorProfile({ data, location }) {
   const siteTitle = data.site.siteMetadata.title;
   const author = data.contentfulPerson;
@@ -39,24 +41,67 @@ export default function AuthorProfile({ data, location }) {
           />
           <p>Member since: {author.memberSince}</p>
 
-          {author.blog ? (
-            <h3 className="py-5">Personal blog:</h3>
-          ) : (
-            <></>
-          )}
-          {author.blog ? <p><Link to={`${author.blog}`} className="cursor-pointer hover:underline" target="_blank">{author.blog} </Link></p> : <></>}
-
-
-          {author.facebook || author.twitter || author.instagram  ? (
+          {author.facebook || author.twitter || author.instagram ? (
             <h3 className="py-5">Social media:</h3>
           ) : (
             <></>
           )}
-          {author.facebook ? <p><Link to={`${author.facebook}`} className="cursor-pointer hover:underline" target="_blank">Facebook </Link></p> : <></>}
-          {author.twitter ? <p><Link to={`${author.twitter}`} className="cursor-pointer hover:underline" target="_blank">Twitter</Link></p> : <></>}
-          {author.instagram ? <p><Link to={`${author.instagram}`} className="cursor-pointer hover:underline" target="_blank">Instagram</Link></p> : <></>}
 
+          <div className="flex transition duration-300 ease-in-out text-3xl">
+            {author.facebook ? (
+              <Link
+                to={`${author.facebook}`}
+                className="pr-5"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {" "}
+                <FaFacebookSquare />{" "}
+              </Link>
+            ) : (
+              <></>
+            )}
+            {author.twitter ? (
+              <Link
+                to={`${author.twitter}`}
+                className="pr-5"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaTwitter />
+              </Link>
+            ) : (
+              <></>
+            )}
+            {author.instagram ? (
+              <Link
+                to={`${author.instagram}`}
+                className="pr-5"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <FaInstagram />
+              </Link>
+            ) : (
+              <></>
+            )}
+          </div>
 
+          {author.blog ? <h3 className="py-5">Personal blog:</h3> : <></>}
+          {author.blog ? (
+            <p>
+              <Link
+                to={`${author.blog}`}
+                className="cursor-pointer hover:underline"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {author.blog}{" "}
+              </Link>
+            </p>
+          ) : (
+            <></>
+          )}
 
           {posts ? <h3 className="py-5">Posts: </h3> : <></>}
 
@@ -79,7 +124,11 @@ export default function AuthorProfile({ data, location }) {
               {publications.edges.map(({ node }) => {
                 return (
                   <li className="cursor-pointer hover:underline">
-                    <Link to={`${node.link}/`} target="_blank">
+                    <Link
+                      to={`${node.link}/`}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
                       {node.name}
                     </Link>
                   </li>
