@@ -39,14 +39,24 @@ export default function AuthorProfile({ data, location }) {
           />
           <p>Member since: {author.memberSince}</p>
 
-          {author.facebook || author.twitter || author.instagram ? (
+          {author.blog ? (
+            <h3 className="py-5">Personal blog:</h3>
+          ) : (
+            <></>
+          )}
+          {author.blog ? <p><Link to={`${author.blog}`} className="cursor-pointer hover:underline" target="_blank">{author.blog} </Link></p> : <></>}
+
+
+          {author.facebook || author.twitter || author.instagram  ? (
             <h3 className="py-5">Social media:</h3>
           ) : (
             <></>
           )}
-          {author.facebook ? <p>Facebook: {author.facebook} </p> : <></>}
-          {author.twitter ? <p>Twitter: {author.twitter} </p> : <></>}
-          {author.instagram ? <p>Instagram: {author.instagram} </p> : <></>}
+          {author.facebook ? <p><Link to={`${author.facebook}`} className="cursor-pointer hover:underline" target="_blank">Facebook </Link></p> : <></>}
+          {author.twitter ? <p><Link to={`${author.twitter}`} className="cursor-pointer hover:underline" target="_blank">Twitter</Link></p> : <></>}
+          {author.instagram ? <p><Link to={`${author.instagram}`} className="cursor-pointer hover:underline" target="_blank">Instagram</Link></p> : <></>}
+
+
 
           {posts ? <h3 className="py-5">Posts: </h3> : <></>}
 
@@ -105,6 +115,7 @@ export const AuthorsProfileQuery = graphql`
       twitter
       instagram
       facebook
+      blog
       active
 
       memberSince(formatString: "MMMM YYYY")
