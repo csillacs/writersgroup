@@ -47,11 +47,11 @@ export default function AuthorProfile({ data, location }) {
             <></>
           )}
 
-          <div className="flex transition duration-300 ease-in-out text-3xl">
+          <div className="flex transition duration-300 ease-in-out text-4xl">
             {author.facebook ? (
               <Link
                 to={`${author.facebook}`}
-                className="pr-5"
+                className="pr-5 hover:text-slate-900 dark:hover:text-slate-50"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -64,7 +64,7 @@ export default function AuthorProfile({ data, location }) {
             {author.twitter ? (
               <Link
                 to={`${author.twitter}`}
-                className="pr-5"
+                className="pr-5 hover:text-slate-900 dark:hover:text-slate-50"
                 target="_blank"
                 rel="noreferrer noopener"
               >
@@ -76,7 +76,7 @@ export default function AuthorProfile({ data, location }) {
             {author.instagram ? (
               <Link
                 to={`${author.instagram}`}
-                className="pr-5"
+                className="pr-5 hover:text-slate-900 dark:hover:text-slate-50"
                 target="_blank"
                 rel="noreferrer noopener"
               >
