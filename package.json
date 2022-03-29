@@ -6,7 +6,7 @@
   "dependencies": {
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.4",
-    "babel-preset-gatsby": "^2.10.1",
+    "babel-preset-gatsby": "^2.11.0",
     "disqus-react": "^1.1.2",
     "downshift": "^6.1.7",
     "gatsby": "^2.23.9",
