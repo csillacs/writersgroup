@@ -67,10 +67,14 @@ export default function Footer() {
             >
               Facebook <span className="text-teal-600 text-xs p-1"></span>
             </a>
-            <p className="my-3 block">
-              helsinkiwriters[at]gmail.com{" "}
-              <span className="text-teal-600 text-xs p-1"></span>
-            </p>
+            <a
+              className="my-3 block"
+              href="https://www.instagram.com/helsinkiwritersgroup/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Instagram <span className="text-teal-600 text-xs p-1"></span>
+            </a>
           </div>
         </div>
       </div>
@@ -81,7 +85,7 @@ export default function Footer() {
       md:flex-row max-w-6xl dark:text-gray-500"
         >
           <div className="m-auto">
-            © 2021. Created by Csilla Csépke, Helsinki Writers Group
+            © 2021. Created by Csilla Csépke, Helsinki Writers Group, helsinkiwriters[at]gmail.com
           </div>
         </div>
       </div>
