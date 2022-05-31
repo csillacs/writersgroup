@@ -1,5 +1,6 @@
 import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import Img from "gatsby-image";
 
 export default function AboutContent() {
   // const contentfulAboutContent = something.contentfulAboutContent
@@ -12,6 +13,14 @@ export default function AboutContent() {
         author {
           name
           slug
+        }
+        image {
+          file {
+            fileName
+          }
+          fluid(maxWidth: 1180, background: "rgb:000000") {
+            ...GatsbyContentfulFluid
+          }
         }
         body {
           childMarkdownRemark {
@@ -45,6 +54,18 @@ export default function AboutContent() {
         }{" "}
         mins
       </small>
+
+      {contentfulComponent.image ? (
+        <div className="md:px-20 pb-10 pt-20">
+          <Img
+            alt={contentfulComponent.image.filename}
+            fluid={contentfulComponent.image.fluid}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+
       <div
         className="py-10 leading-relaxed whitespace-pre-line text-base md:text-lg"
         dangerouslySetInnerHTML={{

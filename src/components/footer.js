@@ -67,6 +67,10 @@ export default function Footer() {
             >
               Facebook <span className="text-teal-600 text-xs p-1"></span>
             </a>
+            <p className="my-3 block">
+              helsinkiwriters[at]gmail.com{" "}
+              <span className="text-teal-600 text-xs p-1"></span>
+            </p>
           </div>
         </div>
       </div>

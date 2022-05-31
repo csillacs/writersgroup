@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import Layout from "../components/layout";
 import Hero from "../components/hero";
 import AboutContent from "../components/about-content";
-import FacebookEvents from "../components/facebook-events";
+// import FacebookEvents from "../components/facebook-events";
 import { graphql } from "gatsby";
 
 export default function About({ data, location }) {
@@ -18,7 +18,7 @@ export default function About({ data, location }) {
         <div class="lg:flex">
           <AboutContent />
           <div className="lg:pt-20 lg:ml-10">
-            <FacebookEvents />
+            {/* <FacebookEvents /> */}
           </div>
         </div>
       </div>
