@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
-    "@tailwindcss/typography": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.4",
     "autoprefixer": "^10.4.7",
     "babel-preset-gatsby": "^2.18.0",
     "disqus-react": "^1.1.3",
