@@ -9,7 +9,7 @@
     "babel-preset-gatsby": "^2.24.0",
     "disqus-react": "^1.1.5",
     "downshift": "^7.2.1",
-    "gatsby": "^2.23.9",
+    "gatsby": "^5.8.0",
     "gatsby-image": "^3.11.0",
     "gatsby-plugin-dark-mode": "^1.1.2",
     "gatsby-plugin-disqus": "^1.2.4",
