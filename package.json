@@ -28,7 +28,7 @@
     "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
     "react-instantsearch": "^6.38.3",
-    "tailwindcss": "^3.2.4"
+    "tailwindcss": "^3.3.1"
   },
   "devDependencies": {
     "contentful-import": "^8.5.34",
