@@ -22,6 +22,9 @@ export default () => (
         <Link to="/shop">Shop</Link>
       </li>
       <li className={styles.navigationItem}>
+        <Link to="/anthology">Anthology</Link>
+      </li>
+      <li className={styles.navigationItem}>
         <ThemeToggler>
           {({ theme, toggleTheme }) => (
             <div className={styles.darkButton}>
