@@ -43,7 +43,7 @@ export default function Anthology({ data, location }) {
           style={{ paddingTop: "max(60%, 324px)", width: "100%", height: "0" }}
         >
           <iframe
-            className="absolute border-none w-full h-full left-0 top-0"
+            className="absolute border-none w-full h-full left-0 top-0 pb-20 pt-10"
             src="https://online.fliphtml5.com/srdwi/ofqa/index.html"
             seamless="seamless"
             scrolling="no"
