@@ -44,7 +44,7 @@ export default function Anthology({ data, location }) {
         >
           <iframe
             className="absolute border-none w-full h-full left-0 top-0 pb-20 pt-10"
-            src="https://online.fliphtml5.com/srdwi/ofqa/index.html"
+            src="https://online.fliphtml5.com/srdwi/ezpk/"
             seamless="seamless"
             scrolling="no"
             frameBorder="0"
